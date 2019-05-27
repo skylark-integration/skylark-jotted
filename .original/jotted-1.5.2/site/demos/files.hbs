@@ -1,0 +1,23 @@
+---
+layout: demo.html
+title: Loading files
+demo: true
+---
+<div id="jotted-demo-files"></div>
+
+<link href="../jotted.css" rel="stylesheet">
+<script src="../jotted.js"></script>
+<script>
+  new Jotted(document.querySelector('#jotted-demo-files'), {
+    files: [
+      {
+        type: 'html',
+        url: '../demo-home/ripple.html'
+      },
+      {
+        type: 'css',
+        url: '../demo-home/ripple.css'
+      }
+    ]
+  });
+</script>

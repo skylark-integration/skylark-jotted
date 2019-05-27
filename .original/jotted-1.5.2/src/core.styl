@@ -1,0 +1,221 @@
+/* jotted
+ */
+
+.jotted {
+  position: relative;
+  height: 12em;
+  overflow: hidden;
+  border: 1px solid rgba(#333, .24);
+  border-radius: 2px;
+  box-sizing: border-box;
+
+  font-family: sans-serif;
+}
+
+/* nav
+ */
+
+.jotted-nav {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: 2.4em;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  background: rgba(#333, .08);
+  border-bottom: 1px solid rgba(#333, .2);
+}
+
+.jotted-nav-item {
+  display: none;
+  float: left;
+  border-width: 0 1px;
+  border-style: solid;
+  border-color: transparent;
+
+  color: #555;
+}
+
+.jotted-nav-item:first-child {
+  border-width: 0 1px 0 0;
+}
+
+.jotted-nav-item:hover,
+.jotted-nav-item:focus {
+  background: rgba(#333, .04);
+}
+
+.jotted-nav-item:active {
+  background: rgba(#333, .12);
+}
+
+.jotted-nav-item a {
+  display: block;
+  padding: 0 .8em;
+
+  color: inherit;
+  line-height: 2.4em;
+  text-decoration: none;
+}
+
+.jotted-pane-active-result .jotted-nav-item-result,
+.jotted-pane-active-html .jotted-nav-item-html,
+.jotted-pane-active-css .jotted-nav-item-css,
+.jotted-pane-active-js .jotted-nav-item-js {
+  background: #fff;
+  border-color: rgba(#333, .3);
+
+  color: #222;
+}
+
+
+/* always show the result tab nav
+ */jotted-nav-item
+.jotted-nav-item-result {
+  display: block;
+}
+
+/* show tabs if we have content for them
+ */
+.jotted-has-html .jotted-nav-item-html,
+.jotted-has-css .jotted-nav-item-css,
+.jotted-has-js .jotted-nav-item-js {
+  display: block;
+}
+
+/* pane
+ */
+
+.jotted-pane {
+  position: absolute;
+  z-index: 1;
+  visibility: hidden;
+  height: 100%;
+  width: 100%;
+  padding-top: 2.4em;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.jotted-pane-active-result .jotted-pane-result,
+.jotted-pane-active-html .jotted-pane-html,
+.jotted-pane-active-css .jotted-pane-css,
+.jotted-pane-active-js .jotted-pane-js {
+  position: relative;
+  visibility: visible;
+}
+
+/* editor
+ */
+
+.jotted-editor {
+  height: 100%;
+}
+
+.jotted-pane-result iframe,
+.jotted-editor textarea {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: 0;
+
+  box-sizing: border-box;
+}
+
+.jotted-editor textarea {
+  padding: 1em;
+  background: #fff;
+}
+
+/* status
+ */
+
+.jotted-status-active-html .jotted-pane-html,
+.jotted-status-active-css .jotted-pane-css,
+.jotted-status-active-js .jotted-pane-js {
+  padding-bottom: 1.5em;
+}
+
+.jotted-status {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  padding: 0 .6em;
+}
+
+.jotted-status p {
+  margin: 0;
+
+  color: #333;
+  font-size: .8em;
+  line-height: 1.8em;
+}
+
+.jotted-status p:before {
+  content: '';
+  position: relative;
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  margin-right: .8em;
+  margin-bottom: .28em;
+  border-radius: 100%;
+
+  color: #fff;
+  font-size: .8em;
+  font-family: monospace;
+  font-weight: bold;
+  line-height: 1.2em;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.jotted-status-loading {
+  background: #fff6d5;
+}
+
+.jotted-status-loading p:before {
+  background: #ffdd55;
+}
+
+.jotted-status-error {
+  background: #FFCCBC;
+}
+
+.jotted-status-error p:before {
+  background: #C0392B;
+}
+
+/* buttons
+ * used by plugins
+ */
+.jotted-button {
+  padding: 0 1em;
+  border: 1px solid #ccc;
+  background: rgba(#ececec, .92);
+  background: linear-gradient(rgba(#f9f9f9, .92), rgba(#ececec, .92));
+  border-radius: 2px;
+
+  cursor: pointer;
+  line-height: 1.6em;
+}
+
+.jotted-button:hover {
+  background: #f9f9f9;
+}
+
+/* plugins
+ */
+
+@import 'plugins/*';
+
+/* themes
+ */
+
+@import 'themes/*';

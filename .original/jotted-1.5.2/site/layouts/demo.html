@@ -1,0 +1,123 @@
+---
+layout: main.html
+base: '../'
+---
+
+<div class="gl gl-vertical">
+
+  <div class="gl-cell header-demo">
+
+    <div class="gl">
+
+      <div class="gl-cell">
+
+        <a href="../" class="button-back">
+          &larr; Back to documentation
+        </a>
+
+        <h1>
+          Jotted
+        </h1>
+
+      </div>
+
+      <div class="gl-cell dropdown-container">
+
+        <div class="dropdown">
+
+          <a href="#dropdown-demos" class="button dropdown-button">
+            Demos
+          </a>
+
+          <ul id="dropdown-demos" class="dropdown-content">
+            <li>
+              <a href="ace.html">
+                Ace Editor
+              </a>
+            </li>
+            <li>
+              <a href="codemirror.html">
+                CodeMirror Editor
+              </a>
+            </li>
+            <li>
+              <a href="markdown.html">
+                Markdown
+              </a>
+            </li>
+            <li>
+              <a href="less.html">
+                Less
+              </a>
+            </li>
+            <li>
+              <a href="stylus.html">
+                Stylus
+              </a>
+            </li>
+            <li>
+              <a href="coffeescript.html">
+                CoffeeScript
+              </a>
+            </li>
+            <li>
+              <a href="es2015.html">
+                ES2015
+              </a>
+            </li>
+            <li>
+              <a href="files.html">
+                External files
+              </a>
+            </li>
+            <li>
+              <a href="console.html">
+                Console Plugin
+              </a>
+            </li>
+            <li>
+              <a href="play.html">
+                Play Plugin
+              </a>
+            </li>
+            <li>
+              <a href="pen.html">
+                Pen Plugin
+              </a>
+            </li>
+            <li>
+              <a href="theme-bin.html">
+                Bin Theme
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="gl-cell gl-fill">
+
+    <div class="jotted-demo"></div>
+
+    <div class="demo-content">
+{{#markdown}}
+```
+{{> body }}
+```
+{{/markdown}}
+    </div>
+
+  </div>
+</div>
+
+<link rel="stylesheet" href="../bower_components/codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="../css/demos.css">
+
+<script src="../bower_components/codemirror/lib/codemirror.js"></script>
+<script src="../bower_components/he/he.js"></script>
+<script src="../js/demos.js"></script>

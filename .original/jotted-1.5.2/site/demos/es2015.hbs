@@ -1,0 +1,30 @@
+---
+layout: demo.html
+title: ES2015
+demo: true
+---
+
+<p>
+  Get a <a href="https://babeljs.io/" target="_blank">Babel</a> build with client-side support from from <a href="https://cdnjs.com/libraries/babel-core/5.8.34" target="_blank">babel-core</a> on <a href="https://cdnjs.com/" target="_blank">cdnjs</a>.
+</p>
+
+<div id="jotted-demo-es2015"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
+
+<link href="../jotted.css" rel="stylesheet">
+<script src="../jotted.js"></script>
+<script>
+  new Jotted(document.querySelector('#jotted-demo-es2015'), {
+    files: [
+      {
+        type: 'js',
+        content: '[ 1, 2 ].forEach((item) => {\n  document.write(item)\n})'
+      }
+    ],
+    pane: 'js',
+    plugins: [
+      'babel'
+    ]
+  });
+</script>

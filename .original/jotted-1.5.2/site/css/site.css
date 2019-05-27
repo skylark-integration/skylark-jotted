@@ -1,0 +1,360 @@
+/* jotted
+ * website
+ */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  display: block;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+
+  color: #000;
+  font-family: sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: #333;
+  font-weight: 300;
+  font-family: Oxygen, sans-serif;
+}
+
+h2 {
+  margin: 0 0 20px;
+
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 32px;
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+p {
+  margin: 0 0 1em;
+
+  line-height: 1.4em;
+}
+
+img {
+  max-width: 100%;
+}
+
+pre {
+  overflow: auto;
+}
+
+code {
+  padding: 2px;
+  background: #efefef;
+}
+
+pre code {
+  padding: 0;
+  background: transparent;
+
+  font-size: 1.2em;
+}
+
+a {
+  color: #aa0000;
+}
+
+a:focus,
+a:hover {
+  color: #d40000;
+}
+
+a:visited {
+  color: #782144;
+}
+
+a img {
+  border: 0;
+}
+
+blockquote {
+  margin: 0 0 1em;
+  padding-left: 2em;
+  border-left: 5px solid rgba(0,0,0,.1);
+
+  font-family: serif;
+  line-height: 1.6em;
+}
+
+.container {
+  max-width: 64em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+section {
+  margin: 0 1em 6em 1em;
+}
+
+@media only screen and (min-width: 40em) {
+  section {
+    margin: 0 0 6em;
+  }
+}
+
+.button {
+  position: relative;
+  display: inline-block;
+  padding: .6em 2em;
+  margin-bottom: .4em;
+  border: 2px solid #aa0000;
+
+  color: #aa0000;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+
+  transition:  all .1s;
+}
+
+.button:active {
+  top: 1px;
+}
+
+.button:hover,
+.button:focus {
+  border-color: #d40000;
+
+  color: #d40000;
+}
+
+.button:focus {
+  outline: 1px dotted #d40000;
+}
+
+.button-full {
+  display: block;
+  width: 100%;
+}
+
+.button-primary,
+.button-primary:visited {
+  background: #aa0000;
+  border-color: #aa0000;
+
+  color: #fff;
+}
+
+.button-primary:hover,
+.button-primary:focus {
+  background: #d40000;
+  border-color: #d40000;
+
+  color: #fff;
+}
+
+ul {
+  margin-bottom: 1em;
+  padding-left: 1em;
+}
+
+section ul li {
+  margin-bottom: .8em;
+}
+
+.list-inline {
+  padding: 0;
+  list-style-type: none;
+}
+
+.list-inline li {
+  display: inline-block;
+}
+
+/* header
+ */
+
+.header-home {
+  overflow: hidden;
+  position: relative;
+  padding: 8em 2em;
+  margin: 0 0 4em;
+  background: #f9f9f9;
+}
+
+@media only screen and (min-width: 40em) {
+  .header-home:after {
+    content: '';
+    position: absolute;
+    right: -6%;
+    top: 0;
+    z-index: 1;
+    display: block;
+    width: 60%;
+    height: 100%;
+    background: #f2f2f2;
+    transform: skewX(-16deg);
+  }
+}
+
+#j-header {
+  height: 20em;
+}
+
+.header-demo {
+  position: relative;
+  z-index: 2;
+}
+
+@media only screen and (min-width: 40em) {
+  .header-demo {
+    padding-left: 2em;
+  }
+}
+
+.header-details {
+  padding-right: 2em;
+}
+
+.logo-jotted {
+  max-width: 400px;
+  margin: 0 0 .4em;
+
+  font-size: 2.8em;
+  text-decoration:none;
+}
+
+.header-tagline {
+  margin: 0 0 1em;
+
+  font-size: 1.2em;
+  line-height: 1.8em;
+}
+
+.header-get {
+  position: relative;
+  padding: 1em 0;
+  margin-bottom: 1em;
+}
+
+.header-get pre {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 1em;
+}
+
+.header-get pre:last-child {
+  margin: 0;
+}
+
+.header-get:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -140%;
+  display: block;
+  width: 200%;
+  height: 100%;
+  background: #fff;
+  transform: skewX(16deg);
+}
+
+/* features
+*/
+
+@media only screen and (min-width: 40em) {
+  .section-features {
+    padding-right: 40px;
+  }
+}
+
+/* browsers
+*/
+
+.logo-browser {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 8px;
+}
+
+.browsers-supported {
+  width: 24em;
+
+  font-size: 11px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.browsers-supported li {
+  padding-right: 4px;
+}
+
+.browsers-supported img {
+  display: block;
+  margin: 0 auto 8px;
+}
+
+/* code
+*/
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #f2f2f2;
+  margin-bottom: 2em;
+}
+
+/* footer
+*/
+
+footer {
+  padding: 8px;
+}
+
+/* footer
+*/
+
+.footer {
+  position: relative;
+  margin-top: 12em;
+  margin-bottom: 4em;
+}
+
+.footer:before {
+  content: '';
+  position: absolute;
+  top: -6em;
+  left: 50%;
+  display: block;
+  width: 12em;
+  height: 1px;
+  border-top: 1px solid #aa0000;
+  transform: translateX(-50%) skewY(16deg);
+}
+
+.footer .container {
+  padding-top: 20px;
+  border-top: 1px solid #efefef;
+
+  font-size: 14px;
+}
+
+.footer p {
+  margin-bottom: .4em;
+}
+
+@media only screen and (min-width: 40em) {
+  .footer .gl-cell {
+    text-align: right;
+  }
+}
+
+.footer .gl-cell:first-child {
+  text-align: left;
+}

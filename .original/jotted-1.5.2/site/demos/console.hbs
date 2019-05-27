@@ -1,0 +1,35 @@
+---
+layout: demo.html
+title: Console Plugin
+demo: true
+---
+<p>
+  The <strong>console</strong> plugin adds an extra <strong>JS Console</strong> tab. It's a lightweight version of the browser's console, running  in the iframe context.
+</p>
+
+<p>
+  It also captures any <code>console.log</code> calls, but it doesn't log errors in your code.
+</p>
+
+<div id="jotted-demo-console" style="height: 28em"></div>
+
+<link href="../jotted.css" rel="stylesheet">
+<script src="../jotted.js"></script>
+<script>
+  new Jotted(document.querySelector('#jotted-demo-console'), {
+    files: [
+      {
+        type: 'js',
+        content: 'var someVar = Date.now();\nconsole.log("log someVar", someVar);'
+      }
+    ],
+    pane: 'console',
+    plugins: [{
+      name: 'console',
+      options: {
+        // clear the console on each change
+        autoClear: true
+      }
+    }]
+  });
+</script>

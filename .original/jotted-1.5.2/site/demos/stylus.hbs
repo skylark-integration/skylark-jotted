@@ -1,0 +1,29 @@
+---
+layout: demo.html
+title: Stylus
+demo: true
+---
+<p>
+  Get Stylus with client-side support from <a href="http://stylus-lang.com/try/stylus.min.js" target="_blank">http://stylus-lang.com/try/stylus.min.js</a>.
+</p>
+
+<div id="jotted-demo-stylus"></div>
+
+<script src="../lib/stylus.min.js"></script>
+
+<link href="../jotted.css" rel="stylesheet">
+<script src="../jotted.js"></script>
+<script>
+  new Jotted(document.querySelector('#jotted-demo-stylus'), {
+    files: [
+      {
+        type: 'css',
+        content: 'stylusVar = hotpink;\nbody {\n background: stylusVar; \n}'
+      }
+    ],
+    pane: 'css',
+    plugins: [
+      'stylus'
+    ]
+  });
+</script>
