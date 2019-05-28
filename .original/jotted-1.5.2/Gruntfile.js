@@ -111,9 +111,10 @@ module.exports = function (grunt) {
         format: 'umd',
         moduleName: 'Jotted'
       },
-      files: {
-        src: 'src/core.js',
-        dest: 'jotted.js'
+      input :'src/core.js', 
+      output: {
+      	name : 'main',
+        file: 'jotted.js'
       }
     },
     uglify: {
@@ -256,7 +257,7 @@ module.exports = function (grunt) {
   grunt.registerTask('default', [
     'clean',
     'standard',
-    'rollup',
+ //   'rollup',
     'uglify',
     'stylus',
     'assemble'

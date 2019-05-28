@@ -1,0 +1,248 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>
+      Jotted &#8212; Showcase self-hosted HTML, CSS and JavaScript demos, with editable source
+  </title>
+  <meta name="description" content="Environment for showcasing HTML, CSS and JavaScript, with editable source. Like JSFiddle or JS Bin for self-hosted demos.">
+  <meta name="keywords" content="jot,jotted,html,css,javascript,editor,client-side,self-hosted,demo,jsfiddle,jsbin,codepen,cssdeck,fiddle">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css?family=Oxygen:400,300,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="bower_components/gridlayout/gridlayout.css">
+  <link rel="stylesheet" href="bower_components/prism/themes/prism.css">
+  <link rel="stylesheet" href="jotted.css">
+
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+  <script src="jotted.js"></script>
+
+  
+
+<link rel="stylesheet" href="bower_components/codemirror/lib/codemirror.css">
+<script src="bower_components/codemirror/lib/codemirror.js"></script>
+<script src="bower_components/codemirror/mode/javascript/javascript.js"></script>
+<script src="bower_components/codemirror/mode/css/css.js"></script>
+<script src="bower_components/codemirror/mode/xml/xml.js"></script>
+<script src="bower_components/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+
+<header class="header-home">
+  <div class="gl container">
+    <div class="gl-cell header-details">
+      <h1 class="logo-jotted">
+        <a href="./">
+          <img src="images/logo-jotted.png" width="298" height="66" alt="Jotted">
+        </a>
+      </h1>
+
+      <p class="header-tagline">
+        Environment for showcasing self-hosted HTML, CSS and JavaScript snippets, with editable source.
+      </p>
+
+      <div class="header-get">
+        <pre><code><a href="https://www.npmjs.com/package/jotted/">npm</a> install jotted</code></pre>
+        <pre><code><a href="http://bower.io/">bower</a> install jotted</code></pre>
+      </div>
+
+      <a href="https://github.com/ghinda/jotted/archive/master.zip" class="button button-primary">
+        Download
+      </a>
+
+      <a href="https://github.com/ghinda/jotted" class="button">
+        View on GitHub
+      </a>
+
+    </div>
+    <div class="gl-cell header-demo">
+
+      <div id="j-header"></div>
+
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+  <section>
+    <div class="gl">
+      <div class="gl-cell section-features gl-md-8">
+<h2 id="features">Features</h2>
+<ul>
+<li><strong>Lightweight:</strong> No dependencies, uses <code>textarea</code>s for editing by default.</li>
+<li><strong>Plugins:</strong> Flexible plugin architecture for custom editors, preprocessors or anything else.</li>
+<li><strong>Code editors:</strong> Includes plugins for code editors like <a href="https://ace.c9.io/">Ace</a> and <a href="https://codemirror.net/">CodeMirror</a>.</li>
+<li><strong>Preprocessors:</strong> Includes plugins for preprocessors (ES6, CoffeeScript, Less, Stylus, Markdown).</li>
+</ul>
+      </div>
+
+      <div class="gl-cell">
+        <h2>
+          Browser support
+        </h2>
+
+        <div class="browsers-supported">
+
+          <ul class="gl gl-sm">
+            <li class="gl-cell">
+              <img src="images/logo-browser-modern.png" class="logo-browser">
+              Modern browsers
+            </li>
+            <li class="gl-cell">
+              <img src="images/logo-safari-ios.png" class="logo-browser">
+              iOS 5+
+            </li>
+            <li class="gl-cell">
+              <img src="images/logo-android.png" class="logo-browser">
+              Android 4+
+            </li>
+            <li class="gl-cell">
+              <img src="images/logo-ie.png" class="logo-browser">
+              IE 9+
+            </li>
+          </ul>
+
+        </div>
+      </div>
+
+  </section>
+
+  <section>
+<h2 id="demos">Demos</h2>
+<ul>
+<li><a href="demos/ace.html">Ace Editor</a> - Using the Ace editor and plugin.</li>
+<li><a href="demos/codemirror.html">CodeMirror Editor</a> - Using the CodeMirror editor and plugin.</li>
+<li><a href="demos/markdown.html">Markdown</a> - Using the Markdown plugin.</li>
+<li><a href="demos/less.html">Less</a> - Using the Less plugin.</li>
+<li><a href="demos/stylus.html">Stylus</a> - Using the Stylus plugin.</li>
+<li><a href="demos/coffeescript.html">CoffeeScript</a> - Using the CoffeeScript plugin.</li>
+<li><a href="demos/es2015.html">ES2015</a> - Using the Babel plugin for ES6/2015 JavaScript support.</li>
+<li><a href="demos/files.html">External files</a> - Loading external files, instead of using inline content.</li>
+<li><a href="demos/console.html">Console Plugin</a> - Using the Console plugin, for a lightweight JavaScript console running in the iframe context.</li>
+<li><a href="demos/play.html">Play Plugin</a> - The Play plugin disables auto-run and adds a Run button to manually update the preview.</li>
+<li><a href="demos/pen.html">Pen Plugin</a> - Different layout with the result on top, and side by side, resizable columns.</li>
+<li><a href="demos/theme-bin.html">Bin Theme</a> - Using the <em>bin</em> theme, for side by side editing.</li>
+</ul>
+  </section>
+
+  <section>
+
+<h2 id="how-to-use">How to use</h2>
+<h3 id="quick-use">Quick use</h3>
+<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;jotted.css&quot;&gt;
+&lt;script src=&quot;jotted.js&quot;&gt;&lt;/script&gt;
+
+&lt;div id=&quot;editor&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  new Jotted(document.querySelector(&#39;#editor&#39;), {
+    files: [{
+      type: &#39;html&#39;,
+      url: &#39;index.html&#39;
+    }]
+  })
+&lt;/script&gt;</code></pre>
+<h3 id="options">Options</h3>
+<p>  Initialize Jotted with <code>new Jotted(elementNode, optionsHash)</code>.</p>
+<p>  The first argument is a DOM container where the editor will be created. The second argument is a hash of options.</p>
+<p>  Available options are:</p>
+<h4 id="files">files</h4>
+<p>Type: <code>Array</code>
+Default: <code>[]</code></p>
+<p>Array of <code>Object</code>s specifying files that will be loaded. Objects inside the array must follow this pattern:</p>
+<pre><code>{
+  type: &quot;html&quot;, // can be &quot;html&quot;, &quot;css&quot;, or &quot;js&quot;
+  url: &quot;/index.html&quot;, // load the file from a url (restricted by the same-domain policy), OR
+  content: &quot;&lt;h1&gt;HTML Content&lt;/h1&gt;&quot; // insert file content as string
+}</code></pre>
+<p>Use either <code>url</code> or <code>content</code>, not both.</p>
+<h4 id="showblank">showBlank</h4>
+<p>Type: <code>Boolean</code>
+Default: <code>false</code></p>
+<p>Specifies if panes/tabs without content/files should be visible.</p>
+<h4 id="runscripts">runScripts</h4>
+<p>Type: <code>Boolean</code>
+Default: <code>true</code></p>
+<p>Specifies if script tags inside HTML content should be ran.</p>
+<h4 id="pane">pane</h4>
+<p>Type: <code>String</code>
+Default: <code>result</code></p>
+<p>Specifies which pane/tab should be the default one opened. Can be <code>result</code>, <code>html</code>, <code>css</code> or <code>js</code>.</p>
+<h4 id="debounce">debounce</h4>
+<p>Type: <code>Number</code>
+Default: 250</p>
+<p>Sets the debounce interval used by the <code>change</code> event (eg. render changes in the Result pane after a change in an editor).</p>
+<h4 id="plugins">plugins</h4>
+<p>Type: <code>Array</code>
+Default: []</p>
+<p>Array of <code>String</code>s or <code>Object</code>s setting the plugins used by this editor instance.</p>
+<p>If <code>String</code>, specify plugin name.</p>
+<p>If <code>Object</code>, follow this pattern:</p>
+<pre><code>{
+  name: &#39;less&#39;, // plugin name
+  options: {} // options hash to be passed to plugin
+}</code></pre>
+<h3 id="example">Example</h3>
+<pre><code class="language-javascript"><span class="keyword">new</span> Jotted(document.querySelector(<span class="string">'#demo'</span>), {
+  files: [{
+    type: <span class="string">'css'</span>,
+    url: <span class="string">'index.styl'</span>
+  }, {
+    type: <span class="string">'html'</span>,
+    content: <span class="string">'&lt;h1&gt;Demo&lt;/h1&gt;'</span>
+  }],
+  showBlank: <span class="literal">true</span>,
+  plugins: [
+    <span class="string">'stylus'</span>,
+    {
+      name: <span class="string">'codemirror'</span>,
+      options: {
+        lineNumbers: <span class="literal">false</span>
+      }
+    }
+  ]</code></pre>
+  </section>
+
+  <section>
+<h2 id="plugin-api">Plugin API</h2>
+<p>For creating custom plugins see the docs on the <a href="https://github.com/ghinda/jotted#plugin-api">Plugin API</a>.</p>
+  </section>
+
+  <footer class="footer">
+    <div class="gl">
+
+      <div class="gl-cell">
+
+        <p>
+          Source code available on GitHub: <a href="https://github.com/ghinda/jotted">ghinda/jotted</a>.
+        </p>
+
+        <p>
+          Jotted is a project by
+          <a href="https://ghinda.net">Ionuț Colceriu</a>.
+        </p>
+
+      </div>
+
+      <div class="gl-cell">
+        <p>
+          Licensed under the MIT license.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+</div>
+
+
+  <!--[if !(lte IE 8)]><!-->
+  <script src="bower_components/prism/prism.js"></script>
+  <!--<![endif]-->
+  <script src="bower_components/gridlayout/gridlayout-ie.js"></script>
+
+  <script src="js/site.js"></script>
+</body>
+</html>

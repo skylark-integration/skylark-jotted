@@ -1,0 +1,180 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>
+      Console Plugin &#8212; Jotted
+  </title>
+  <meta name="description" content="Environment for showcasing HTML, CSS and JavaScript, with editable source. Like JSFiddle or JS Bin for self-hosted demos.">
+  <meta name="keywords" content="jot,jotted,html,css,javascript,editor,client-side,self-hosted,demo,jsfiddle,jsbin,codepen,cssdeck,fiddle">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css?family=Oxygen:400,300,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../bower_components/gridlayout/gridlayout.css">
+  <link rel="stylesheet" href="../bower_components/prism/themes/prism.css">
+  <link rel="stylesheet" href="../jotted.css">
+
+  <link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+
+  <script src="../jotted.js"></script>
+
+  
+
+<div class="gl gl-vertical">
+
+  <div class="gl-cell header-demo">
+
+    <div class="gl">
+
+      <div class="gl-cell">
+
+        <a href="../" class="button-back">
+          &larr; Back to documentation
+        </a>
+
+        <h1>
+          Jotted
+        </h1>
+
+      </div>
+
+      <div class="gl-cell dropdown-container">
+
+        <div class="dropdown">
+
+          <a href="#dropdown-demos" class="button dropdown-button">
+            Demos
+          </a>
+
+          <ul id="dropdown-demos" class="dropdown-content">
+            <li>
+              <a href="ace.html">
+                Ace Editor
+              </a>
+            </li>
+            <li>
+              <a href="codemirror.html">
+                CodeMirror Editor
+              </a>
+            </li>
+            <li>
+              <a href="markdown.html">
+                Markdown
+              </a>
+            </li>
+            <li>
+              <a href="less.html">
+                Less
+              </a>
+            </li>
+            <li>
+              <a href="stylus.html">
+                Stylus
+              </a>
+            </li>
+            <li>
+              <a href="coffeescript.html">
+                CoffeeScript
+              </a>
+            </li>
+            <li>
+              <a href="es2015.html">
+                ES2015
+              </a>
+            </li>
+            <li>
+              <a href="files.html">
+                External files
+              </a>
+            </li>
+            <li>
+              <a href="console.html">
+                Console Plugin
+              </a>
+            </li>
+            <li>
+              <a href="play.html">
+                Play Plugin
+              </a>
+            </li>
+            <li>
+              <a href="pen.html">
+                Pen Plugin
+              </a>
+            </li>
+            <li>
+              <a href="theme-bin.html">
+                Bin Theme
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="gl-cell gl-fill">
+
+    <div class="jotted-demo"></div>
+
+    <div class="demo-content">
+<pre><code>
+&lt;p&gt;
+  The &lt;strong&gt;console&lt;/strong&gt; plugin adds an extra &lt;strong&gt;JS Console&lt;/strong&gt; tab. It&#39;s a lightweight version of the browser&#39;s console, running  in the iframe context.
+&lt;/p&gt;
+
+&lt;p&gt;
+  It also captures any &lt;code&gt;console.log&lt;/code&gt; calls, but it doesn&#39;t log errors in your code.
+&lt;/p&gt;
+
+&lt;div id=&quot;jotted-demo-console&quot; style=&quot;height: 28em&quot;&gt;&lt;/div&gt;
+
+&lt;link href=&quot;../jotted.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;script src=&quot;../jotted.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  new Jotted(document.querySelector(&#39;#jotted-demo-console&#39;), {
+    files: [
+      {
+        type: &#39;js&#39;,
+        content: &#39;var someVar = Date.now();\nconsole.log(&quot;log someVar&quot;, someVar);&#39;
+      }
+    ],
+    pane: &#39;console&#39;,
+    plugins: [{
+      name: &#39;console&#39;,
+      options: {
+        // clear the console on each change
+        autoClear: true
+      }
+    }]
+  });
+&lt;/script&gt;</code></pre>
+    </div>
+
+  </div>
+</div>
+
+<link rel="stylesheet" href="../bower_components/codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="../css/demos.css">
+
+<script src="../bower_components/codemirror/lib/codemirror.js"></script>
+<script src="../bower_components/he/he.js"></script>
+<script src="../js/demos.js"></script>
+
+
+  <!--[if !(lte IE 8)]><!-->
+  <script src="../bower_components/prism/prism.js"></script>
+  <!--<![endif]-->
+  <script src="../bower_components/gridlayout/gridlayout-ie.js"></script>
+
+  <script src="../js/site.js"></script>
+</body>
+</html>

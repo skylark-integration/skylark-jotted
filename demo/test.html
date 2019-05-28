@@ -1,0 +1,55 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>
+      Jotted &#8212; Showcase self-hosted HTML, CSS and JavaScript demos, with editable source
+  </title>
+  <meta name="description" content="Environment for showcasing HTML, CSS and JavaScript, with editable source. Like JSFiddle or JS Bin for self-hosted demos.">
+  <meta name="keywords" content="jot,jotted,html,css,javascript,editor,client-side,self-hosted,demo,jsfiddle,jsbin,codepen,cssdeck,fiddle">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css?family=Oxygen:400,300,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="bower_components/gridlayout/gridlayout.css">
+  <link rel="stylesheet" href="bower_components/prism/themes/prism.css">
+  <link rel="stylesheet" href="jotted.css">
+
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+  <script src="jotted.js"></script>
+
+  
+
+<div id="j-cm"></div>
+
+<link rel="stylesheet" href="bower_components/codemirror/lib/codemirror.css">
+<script src="bower_components/codemirror/lib/codemirror.js"></script>
+
+<script src="jotted.js"></script>
+
+<script>
+  var jot = new Jotted(document.getElementById('j-cm'), {
+    files: [{
+      type: 'html',
+      content: '<script src="https://fb.me/react-0.14.6.js"><\/script><script src="https://fb.me/react-dom-0.14.6.js"><\/script><script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.js"><\/script><div id="content"><\/div><script language="javascript" type="text/babel">ReactDOM.render(<span>Hello, world!</span>, document.getElementById("content"));<\/script>'
+    }]
+  });
+
+  jot.done('change', function (err, params) {
+    console.log(params.type.toUpperCase())
+  })
+</script>
+
+
+  <!--[if !(lte IE 8)]><!-->
+  <script src="bower_components/prism/prism.js"></script>
+  <!--<![endif]-->
+  <script src="bower_components/gridlayout/gridlayout-ie.js"></script>
+
+  <script src="js/site.js"></script>
+</body>
+</html>
