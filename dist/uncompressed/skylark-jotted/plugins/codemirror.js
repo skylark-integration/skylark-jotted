@@ -1,4 +1,7 @@
-define(['../util'], function (util) {
+define([
+    'skylark-codemirror/CodeMirror',
+    '../util'
+], function (CodeMirror,util) {
     'use strict';
     return class PluginCodeMirror {
         constructor(jotted, options) {
@@ -8,15 +11,15 @@ define(['../util'], function (util) {
             this.jotted = jotted;
             var modemap = { 'html': 'htmlmixed' };
             options = util.extend(options, { lineNumbers: true });
-            if (typeof window.CodeMirror === 'undefined') {
-                return;
-            }
+            //if (typeof window.CodeMirror === 'undefined') {
+            //    return;
+            //}
             var $editors = jotted.$container.querySelectorAll('.jotted-editor');
             for (i = 0; i < $editors.length; i++) {
                 let $textarea = $editors[i].querySelector('textarea');
                 let type = util.data($textarea, 'jotted-type');
                 let file = util.data($textarea, 'jotted-file');
-                this.editor[type] = window.CodeMirror.fromTextArea($textarea, options);
+                this.editor[type] = CodeMirror.fromTextArea($textarea, options);
                 this.editor[type].setOption('mode', util.getMode(type, file, modemap));
             }
             jotted.on('change', this.change.bind(this), priority);

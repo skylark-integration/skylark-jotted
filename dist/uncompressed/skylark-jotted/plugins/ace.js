@@ -1,4 +1,7 @@
-define(['../util'], function (util) {
+define([
+    'skylark-ace',
+    '../util'
+], function (ace,util) {
     'use strict';
     return class PluginAce {
         constructor(jotted, options) {
@@ -7,9 +10,9 @@ define(['../util'], function (util) {
             this.editor = {};
             this.jotted = jotted;
             options = util.extend(options, {});
-            if (typeof window.ace === 'undefined') {
-                return;
-            }
+            //if (typeof window.ace === 'undefined') {
+            //    return;
+            // }
             var $editors = jotted.$container.querySelectorAll('.jotted-editor');
             for (i = 0; i < $editors.length; i++) {
                 let $textarea = $editors[i].querySelector('textarea');
@@ -17,7 +20,7 @@ define(['../util'], function (util) {
                 let file = util.data($textarea, 'jotted-file');
                 let $aceContainer = document.createElement('div');
                 $editors[i].appendChild($aceContainer);
-                this.editor[type] = window.ace.edit($aceContainer);
+                this.editor[type] = ace.edit($aceContainer);
                 let editor = this.editor[type];
                 let editorOptions = util.extend(options);
                 editor.getSession().setMode('ace/mode/' + util.getMode(type, file));

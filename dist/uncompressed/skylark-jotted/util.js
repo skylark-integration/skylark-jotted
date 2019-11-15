@@ -1,4 +1,6 @@
-define(function () {
+define([
+    "skylark-net-http/Xhr"
+],function (Xhr) {
     'use strict';
     function extend(obj = {}, defaults = {}) {
         var extended = {};
@@ -15,6 +17,7 @@ define(function () {
         return extended;
     }
     function fetch(url, callback) {
+        /*
         var xhr = new window.XMLHttpRequest();
         xhr.open('GET', url);
         xhr.responseType = 'text';
@@ -29,6 +32,15 @@ define(function () {
             callback(err);
         };
         xhr.send();
+        */
+        Xhr.get(url).then(
+            function(res) {
+                callback(null,res);
+            },
+            function(e){
+                callback(e);
+            }
+        )
     }
     function runCallback(index, params, arr, errors, callback) {
         return function (err, res) {

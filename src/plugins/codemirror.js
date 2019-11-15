@@ -1,5 +1,5 @@
 define([
-    'skylark-codemirror',
+    'skylark-codemirror/CodeMirror',
     '../util'
 ], function (CodeMirror,util) {
     'use strict';

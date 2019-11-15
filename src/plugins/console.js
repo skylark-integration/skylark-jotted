@@ -6,7 +6,7 @@ define(['../util'], function (util) {
             var priority = 30;
             var history = [];
             var historyIndex = 0;
-            var logCaptureSnippet = `(${ this.capture.toString() })();`;
+            var logCaptureSnippet = `(function ${ this.capture.toString() })();`;
             var contentCache = {
                 html: '',
                 css: '',

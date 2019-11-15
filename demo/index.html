@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css?family=Oxygen:400,300,700" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="bower_components/gridlayout/gridlayout.css">
   <link rel="stylesheet" href="bower_components/prism/themes/prism.css">
-  <link rel="stylesheet" href="jotted.css">
+  <link rel="stylesheet" href="../skins/default/jotted.css">
 
   <link rel="stylesheet" href="css/site.css">
 </head>
@@ -25,11 +25,7 @@
   
 
 <link rel="stylesheet" href="bower_components/codemirror/lib/codemirror.css">
-<script src="bower_components/codemirror/lib/codemirror.js"></script>
-<script src="bower_components/codemirror/mode/javascript/javascript.js"></script>
-<script src="bower_components/codemirror/mode/css/css.js"></script>
-<script src="bower_components/codemirror/mode/xml/xml.js"></script>
-<script src="bower_components/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+
 
 <header class="header-home">
   <div class="gl container">
@@ -133,17 +129,53 @@
 
 <h2 id="how-to-use">How to use</h2>
 <h3 id="quick-use">Quick use</h3>
-<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;jotted.css&quot;&gt;
-&lt;script src=&quot;jotted.js&quot;&gt;&lt;/script&gt;
+<pre><code class="language-html">
+&lt;p&gt;
+  Make sure you load &lt;a href=&quot;https://codemirror.net/&quot; target=&quot;_blank&quot;&gt;CodeMirror&lt;/a&gt; first.
+&lt;/p&gt;
 
-&lt;div id=&quot;editor&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;jotted-demo-codemirror&quot;&gt;&lt;/div&gt;
+
+&lt;link rel=&quot;stylesheet&quot; href=&quot;./css/codemirror.css&quot;&gt;
+
+
+&lt;link href=&quot;./css/jotted.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.3/require.min.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
+require.config({
+  baseUrl: &#39;./&#39;
+  ,map: {
+    &#39;*&#39;: {
+      &#39;jquery&#39;: &#39;skylark-jquery/core&#39;
+    }
+  }
+  , shim: {
+  }
+  ,packages : [
+     { name: &#39;skylark-langx&#39;, location: &#39;../node_modules/skylark-langx/dist/uncompressed/skylark-langx&#39; },
+     { name: &#39;skylark-utils-dom&#39;, location: &#39;../node_modules/skylark-utils-dom/dist/uncompressed/skylark-utils-dom&#39;},
+     { name: &#39;skylark-ace&#39;, location: &#39;../node_modules/skylark-ace/dist/uncompressed/skylark-ace&#39;},
+     { name: &#39;skylark-codemirror&#39;, location: &#39;../../../editor/skylark-codemirror/src&#39;},
+     { name: &#39;skylark-jotted&#39;, location: &#39;../src&#39; }
+  ],
+});
+ 
+require([
+], function() {
+  require([
+    &#39;skylark-utils-dom/query&#39;,
+    &#39;skylark-jotted&#39;
+  ], function ($,Jotted) {
+
   new Jotted(document.querySelector(&#39;#editor&#39;), {
     files: [{
       type: &#39;html&#39;,
       url: &#39;index.html&#39;
     }]
   })
+});
+});
+
 &lt;/script&gt;</code></pre>
 <h3 id="options">Options</h3>
 <p>  Initialize Jotted with <code>new Jotted(elementNode, optionsHash)</code>.</p>
@@ -238,11 +270,7 @@ Default: []</p>
 </div>
 
 
-  <!--[if !(lte IE 8)]><!-->
-  <script src="bower_components/prism/prism.js"></script>
-  <!--<![endif]-->
-  <script src="bower_components/gridlayout/gridlayout-ie.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.3/require.min.js" data-main="js/site.js"></script>
 
-  <script src="js/site.js"></script>
 </body>
 </html>

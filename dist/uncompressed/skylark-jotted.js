@@ -86,7 +86,9 @@
 
 })(function(define,require) {
 
-define('skylark-jotted/util',[],function () {
+define('skylark-jotted/util',[
+    "skylark-net-http/Xhr"
+],function (Xhr) {
     'use strict';
     function extend(obj = {}, defaults = {}) {
         var extended = {};
@@ -103,6 +105,7 @@ define('skylark-jotted/util',[],function () {
         return extended;
     }
     function fetch(url, callback) {
+        /*
         var xhr = new window.XMLHttpRequest();
         xhr.open('GET', url);
         xhr.responseType = 'text';
@@ -117,6 +120,15 @@ define('skylark-jotted/util',[],function () {
             callback(err);
         };
         xhr.send();
+        */
+        Xhr.get(url).then(
+            function(res) {
+                callback(null,res);
+            },
+            function(e){
+                callback(e);
+            }
+        )
     }
     function runCallback(index, params, arr, errors, callback) {
         return function (err, res) {
@@ -565,7 +577,10 @@ define('skylark-jotted/plugins/scriptless',['../util'], function (util) {
         }
     };
 });
-define('skylark-jotted/plugins/ace',['../util'], function (util) {
+define('skylark-jotted/plugins/ace',[
+    'skylark-ace',
+    '../util'
+], function (ace,util) {
     'use strict';
     return class PluginAce {
         constructor(jotted, options) {
@@ -574,9 +589,9 @@ define('skylark-jotted/plugins/ace',['../util'], function (util) {
             this.editor = {};
             this.jotted = jotted;
             options = util.extend(options, {});
-            if (typeof window.ace === 'undefined') {
-                return;
-            }
+            //if (typeof window.ace === 'undefined') {
+            //    return;
+            // }
             var $editors = jotted.$container.querySelectorAll('.jotted-editor');
             for (i = 0; i < $editors.length; i++) {
                 let $textarea = $editors[i].querySelector('textarea');
@@ -584,7 +599,7 @@ define('skylark-jotted/plugins/ace',['../util'], function (util) {
                 let file = util.data($textarea, 'jotted-file');
                 let $aceContainer = document.createElement('div');
                 $editors[i].appendChild($aceContainer);
-                this.editor[type] = window.ace.edit($aceContainer);
+                this.editor[type] = ace.edit($aceContainer);
                 let editor = this.editor[type];
                 let editorOptions = util.extend(options);
                 editor.getSession().setMode('ace/mode/' + util.getMode(type, file));
@@ -610,7 +625,10 @@ define('skylark-jotted/plugins/ace',['../util'], function (util) {
         }
     };
 });
-define('skylark-jotted/plugins/codemirror',['../util'], function (util) {
+define('skylark-jotted/plugins/codemirror',[
+    'skylark-codemirror/CodeMirror',
+    '../util'
+], function (CodeMirror,util) {
     'use strict';
     return class PluginCodeMirror {
         constructor(jotted, options) {
@@ -620,15 +638,15 @@ define('skylark-jotted/plugins/codemirror',['../util'], function (util) {
             this.jotted = jotted;
             var modemap = { 'html': 'htmlmixed' };
             options = util.extend(options, { lineNumbers: true });
-            if (typeof window.CodeMirror === 'undefined') {
-                return;
-            }
+            //if (typeof window.CodeMirror === 'undefined') {
+            //    return;
+            //}
             var $editors = jotted.$container.querySelectorAll('.jotted-editor');
             for (i = 0; i < $editors.length; i++) {
                 let $textarea = $editors[i].querySelector('textarea');
                 let type = util.data($textarea, 'jotted-type');
                 let file = util.data($textarea, 'jotted-file');
-                this.editor[type] = window.CodeMirror.fromTextArea($textarea, options);
+                this.editor[type] = CodeMirror.fromTextArea($textarea, options);
                 this.editor[type].setOption('mode', util.getMode(type, file, modemap));
             }
             jotted.on('change', this.change.bind(this), priority);
@@ -813,7 +831,7 @@ define('skylark-jotted/plugins/console',['../util'], function (util) {
             var priority = 30;
             var history = [];
             var historyIndex = 0;
-            var logCaptureSnippet = `(${ this.capture.toString() })();`;
+            var logCaptureSnippet = `(function ${ this.capture.toString() })();`;
             var contentCache = {
                 html: '',
                 css: '',
