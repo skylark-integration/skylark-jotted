@@ -233,6 +233,7 @@ module.exports = function (grunt) {
   })
 
   grunt.registerTask('server', function (target) {
+    /*
     if (target === 'dist') {
       return grunt.task.run([
         'default',
@@ -240,9 +241,10 @@ module.exports = function (grunt) {
         'connect:dist:keepalive'
       ])
     }
+    */
 
     grunt.task.run([
-      'default',
+//      'default',
       'connect:livereload',
       'watch'
     ])
